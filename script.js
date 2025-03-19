@@ -1,42 +1,41 @@
-const sonic = document.querySelector(".sonic");
+const mario = document.querySelector(".mario");
 const pipe = document.querySelector(".pipe");
-let isGameOver = false; // Flag para controle do game over
+const gameOver = document.querySelector(".game-over");
+let isGameOver = false;
 
 
 const jump = () => {
 
   if (isGameOver) return;
 
-  sonic.classList.add("jump");
-  sonic.src = "./assets/sonic-roll.gif";
-  sonic.style.width = "90px";
+  mario.classList.add("jump");
 
   setTimeout(() => {
     if (isGameOver) return; 
 
-    sonic.classList.remove("jump");
-    sonic.src = "./assets/sonic_.gif";
-    sonic.style.width = "120px";
+    mario.classList.remove("jump");
+    
   }, 500);
 };
 
 const loop = setInterval(() => {
   const pipePosition = pipe.offsetLeft;
-  const sonicPosition = +window.getComputedStyle(sonic).bottom.replace("px", "");
+  const marioPosition = +window.getComputedStyle(mario).bottom.replace("px", "");
 
-  if (pipePosition <= 120 && sonicPosition < 80 && pipePosition > 0) {
+  if (pipePosition <= 120 && marioPosition < 80 && pipePosition > 0) {
     isGameOver = true;
     
     pipe.style.animation = "none";
     pipe.style.left = `${pipePosition}px `;
 
-    sonic.style.animation = "none";
-    sonic.style.bottom = `${sonicPosition}px `;
+    mario.style.animation = "none";
+    mario.style.bottom = `${marioPosition}px `;
 
-    sonic.src = "./assets/sonic-game-over.gif";
-    sonic.style.width = "220px";
+    mario.src = "./assets/mario-game-over.png";
+    mario.style.width = "80px";
     
 
+    gameOver.classList.remove("hidden");
 
     clearInterval(loop);
   }

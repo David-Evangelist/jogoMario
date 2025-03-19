@@ -12,6 +12,9 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(#87ceeb, #e0f6ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pipe {
@@ -21,7 +24,7 @@
   animation: pipe-animation 1.5s linear infinite;
 }
 
-.sonic {
+.mario {
   position: absolute;
   bottom: 0;
   width: 120px;
@@ -36,6 +39,23 @@
 
 .jump {
   animation: jump 500ms ease-out;
+}
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  width: 550px;
+  height: 400px;
+  background-color: rgb(174, 170, 165);
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 36px;
+  z-index: 4;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes pipe-animation {

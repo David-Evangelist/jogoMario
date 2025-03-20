@@ -2,9 +2,9 @@ const sonic = document.querySelector(".sonic");
 const pipe = document.querySelector(".pipe");
 const gameOver = document.querySelector(".game-over");
 
-const gameOverSound = new Audio("./assets/que-tistreza.mp3");
+// const gameOverSound = new Audio("./assets/que-tistreza.mp3");
 
-let isGameOver = false; // Flag para controle do game over
+let isGameOver = false; 
 
 const jump = () => {
   if (isGameOver) return;
@@ -42,7 +42,7 @@ const loop = setInterval(() => {
 
     gameOver.classList.remove("hidden");
 
-    gameOverSound.play();
+    // gameOverSound.play();
 
     clearInterval(loop);
   }
